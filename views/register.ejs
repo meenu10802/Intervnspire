@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - PrepTrack</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="bubbles">
+        <div class="bubble" style="left: 10%; width: 20px; height: 20px; animation-duration: 8s;"></div>
+        <div class="bubble" style="left: 20%; width: 15px; height: 15px; animation-duration: 10s; animation-delay: 1s;"></div>
+        <div class="bubble" style="left: 30%; width: 25px; height: 25px; animation-duration: 9s; animation-delay: 2s;"></div>
+        <div class="bubble" style="left: 40%; width: 18px; height: 18px; animation-duration: 7s;"></div>
+        <div class="bubble" style="left: 50%; width: 22px; height: 22px; animation-duration: 11s; animation-delay: 3s;"></div>
+        <div class="bubble" style="left: 60%; width: 17px; height: 17px; animation-duration: 8s; animation-delay: 4s;"></div>
+        <div class="bubble" style="left: 70%; width: 20px; height: 20px; animation-duration: 9s;"></div>
+        <div class="bubble" style="left: 80%; width: 16px; height: 16px; animation-duration: 10s; animation-delay: 2s;"></div>
+        <div class="bubble" style="left: 90%; width: 23px; height: 23px; animation-duration: 7s; animation-delay: 1s;"></div>
+    </div>
+    <nav>
+        <div class="navbar">
+            <a href="/">PrepTrack</a>
+            <div>
+                <a href="/login">Login</a>
+                <a href="/register">Register</a>
+                <a href="/support">Support</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="register-section">
+        <h2>Join the Dive</h2>
+
+        <% if (typeof error !== 'undefined' && error) { %>
+            <p class="error"><%= error %></p>
+        <% } %>
+
+        <% if (typeof success !== 'undefined' && success) { %>
+            <p class="success"><%= success %></p>
+            <script>
+                console.log('Redirecting to login in 2 seconds...');
+                setTimeout(() => {
+                    console.log('Executing redirect to /login');
+                    window.location.href = '/login';
+                }, 2000);
+            </script>
+        <% } %>
+
+        <form action="/api/auth/register" method="POST">
+            <label for="name">Diver’s Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Sea Scroll (Email):</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="department">Crew (Department):</label>
+            <input type="text" id="department" name="department" required>
+
+            <label for="year">Years at Sea:</label>
+            <input type="number" id="year" name="year" required>
+
+            <label for="programmingLanguage">Dive Gear:</label>
+            <select id="programmingLanguage" name="programmingLanguage" required>
+                <option value="java">Java</option>
+                <option value="python">Python</option>
+                <option value="c">C</option>
+                <option value="cpp">C++</option>
+            </select>
+
+            <label for="password">Secret Code (Password):</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Sign the Log</button>
+        </form>
+    </section>
+</body>
+</html>

@@ -1,0 +1,3 @@
+do mongod in cmd
+mongosh in terminal to enter database
+nodemon filename.js to start server
