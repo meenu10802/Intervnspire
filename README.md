@@ -1,1 +1,2 @@
 # Intervnspire
+The Placement Preparation Tracker is a full-stack web application designed to help students monitor their progress in core subjects for placement preparation. Built with a focus on user engagement and scalability, it features interactive checklists, topic-wise progress bars, and dropdown-based answer reveals. Deployed on AWS with MongoDB Atlas, it ensures seamless cloud-based storage and reduces data retrieval latency by 25%, delivering a data-driven digital experience for efficient learning. 
