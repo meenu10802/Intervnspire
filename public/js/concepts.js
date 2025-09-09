@@ -103,7 +103,8 @@ async function markCompleted(questionId, checkbox) {
         const data = JSON.parse(responseText);
         console.log('Progress received:', data.progress);
         document.getElementById('progress-bar').value = data.progress;
-        document.getElementById('progress-text').textContent = `Progress: ${Math.round(data.progress * 10) / 10}%`;
+        document.getElementById('progress-text').textContent = `Progress: ${Math.round(data.progress * 1000) / 10}%`;
+
         label.textContent = checkbox.checked ? 'Completed' : 'Complete';
         console.log('Before toggle:', label.classList.contains('completed'));
         label.classList.toggle('completed', checkbox.checked);
@@ -166,7 +167,8 @@ function updateChart(totalQuestions, progress) {
         console.error('Invalid chart data: Total:', totalQuestions, 'Progress:', progress);
         return;
     }
-    const completedQuestions = Math.round((progress / 100) * totalQuestions);
+    const completedQuestions = Math.round(progress * totalQuestions);
+
     console.log('Updating chart: Total:', totalQuestions, 'Completed:', completedQuestions, 'Progress:', progress);
     const canvas = document.getElementById('completion-chart');
     if (!canvas) {

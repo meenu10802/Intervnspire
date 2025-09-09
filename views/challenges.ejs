@@ -6,6 +6,7 @@
     <title><%= topic %> Challenges - PrepTrack</title>
     <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/dbmsChallenges.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.7/codemirror.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.7/codemirror.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.7/mode/sql/sql.min.js"></script>
@@ -34,17 +35,20 @@
 
     <section class="topic-section">
         <h2><%= topic %> Challenges</h2>
+        <p>Your Score: <span id="userScore"><%= score %></span></p>
         <progress id="progress-bar" value="0" max="100"></progress>
         <p id="progress-text">Progress: 0%</p>
-        <div class="challenges-section">
-            <h4>SQL Practice Challenges</h4>
-            <ul id="challenge-list"></ul>
+        <div id="circleMenu" class="circle-menu"></div>
+        <div id="questionsContainer" class="questions-container" style="display: none;">
+            <h4 id="sectionTitle"></h4>
+            <button id="backButton" class="segment">Back to Topics</button>
+            <div id="challengeList" class="challenges-section"></div>
         </div>
     </section>
 
     <script>
         const userId = '<%= userId %>';
-        const topic = '<%= topic.toLowerCase() %>';
+        const topic = '<%= rawTopic.toLowerCase() %>';
         function getUserId() { return userId; }
     </script>
     <script src="/js/challenges.js"></script>

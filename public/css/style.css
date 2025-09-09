@@ -648,7 +648,167 @@ progress::-webkit-progress-value {
     border-radius: 5px;
     cursor: pointer;
 }
+.circle-menu {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #0288d1, #26c6da);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  animation: pulse 2s infinite;
+  border: 3px solid #4fc3f7;
+}
 
+.circle-section {
+  position: absolute;
+  width: 80px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid #4fc3f7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: center;
+  font-size: 14px;
+  font-family: 'Bubblegum Sans', cursive;
+  color: #e0f7fa;
+}
+
+.circle-section:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(0, 183, 235, 0.7);
+}
+
+.questions-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background: rgba(10, 25, 47, 0.85);
+  border: 3px solid #0288d1;
+  border-radius: 15px;
+}
+
+.challenges-section {
+  margin-top: 20px;
+}
+
+.challenge {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 10px;
+  border: 2px solid #4fc3f7;
+}
+
+.challenge-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  color: #e0f7fa;
+  font-family: 'Roboto Slab', serif;
+}
+
+.challenge-details {
+  margin-top: 10px;
+}
+
+.challenge-details p {
+  color: #b3e5fc;
+  font-family: 'Roboto Slab', serif;
+}
+
+.timer {
+  font-family: 'Roboto Slab', serif;
+  color: #e0f7fa;
+  margin: 10px 0;
+}
+
+.hint {
+  display: none;
+  margin-top: 10px;
+  padding: 10px;
+  background: rgba(0, 183, 235, 0.3);
+  border-radius: 5px;
+  color: #e0f7fa;
+  font-family: 'Roboto Slab', serif;
+}
+
+.hint.active {
+  display: block;
+}
+
+button.hint-toggle {
+  background: linear-gradient(45deg, #0288d1, #26c6da);
+  color: #ffffff;
+  border: 2px solid #4fc3f7;
+  padding: 5px 10px;
+  font-family: 'Bubblegum Sans', cursive;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+button.hint-toggle::before {
+  content: '💡';
+  margin-right: 5px;
+}
+
+.CodeMirror {
+  border: 2px solid #4fc3f7;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #e0f7fa;
+  font-family: 'Roboto Slab', serif;
+}
+
+button {
+  padding: 10px 20px;
+  background: linear-gradient(45deg, #0288d1, #26c6da);
+  color: #ffffff;
+  border: 2px solid #4fc3f7;
+  border-radius: 10px;
+  font-family: 'Bubblegum Sans', cursive;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(0, 183, 235, 0.7);
+}
+
+button::before {
+  content: '🤿';
+  margin-right: 5px;
+}
+
+.query-result {
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  background: rgba(0, 255, 0, 0.2);
+  color: #00e676;
+}
+
+.query-error {
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  background: rgba(255, 0, 0, 0.2);
+  color: #ff1744;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
 @media (max-width: 768px) {
     .hero h1 { font-size: 3em; }
     .hero p { font-size: 1.3em; }

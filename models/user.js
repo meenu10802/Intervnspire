@@ -7,7 +7,8 @@ const userSchema = new mongoose.Schema({
     department: String,
     year: Number,
     programmingLanguage: String,
-    password: { type: String, required: true }
+    password: { type: String, required: true },
+     score: { type: Number, default: 0 } // Added for scoring
 });
 
 // Mongoose Middleware to hash password before saving

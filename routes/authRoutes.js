@@ -22,7 +22,21 @@ router.post('/register', async (req, res) => {
         success: null,
       });
     }
-
+router.get('/me', async (req, res) => {
+  try {
+    if (!req.session.userId) {
+      return res.status(401).json({ error: 'Unauthorized' });
+    }
+    const user = await User.findById(req.session.userId);
+    if (!user) {
+      return res.status(401).json({ error: 'User not found' });
+    }
+    res.json({ id: user._id, score: user.score });
+  } catch (err) {
+    console.error('Get User Error:', err.message);
+    res.status(500).json({ error: 'Server error' });
+  }
+});
     const user = new User({
       name,
       email,
